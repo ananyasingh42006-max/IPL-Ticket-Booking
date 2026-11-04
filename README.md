@@ -13,8 +13,8 @@ The IPL Ticket Booking Website is a simple website created using HTML and CSS. I
 - Attractive and user-friendly design
 
 ## Technologies Used
-- HTML5
-- CSS3
+- HTML
+- CSS
 
 ## Project Highlights
 - Simple and easy-to-use interface
