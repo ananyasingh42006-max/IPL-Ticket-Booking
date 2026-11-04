@@ -1,26 +1,25 @@
-# 🏏 IPL Ticket Booking Website
+# IPL Ticket Booking Website 🏏
 
 ## About the Project
 The IPL Ticket Booking Website is a simple website created using HTML and CSS. It allows users to explore IPL matches and book tickets through a user-friendly interface.
 
 ## Features
-- Home page with IPL introduction
+- Home page
 - Navigation bar
 - IPL match details
 - Ticket booking form
 - My Bookings section
 - Booking guidelines
-- Attractive and user-friendly design
+- Responsive website layout
 
 ## Technologies Used
-- HTML
-- CSS
+- HTML5
+- CSS3
 
-## Project Highlights
-- Simple and easy-to-use interface
-- Organized sections for match information
-- Easy ticket booking form
-- Designed for IPL cricket fans
+## Project Structure
+    IPL-Ticket-Booking/
+    ├── index.html
+    └── README.md
 
 ## How to Run the Project
 1. Download or clone the repository.
@@ -31,7 +30,7 @@ The IPL Ticket Booking Website is a simple website created using HTML and CSS. I
 The main objective of this project is to understand HTML elements, forms, tables, links and basic website development.
 
 ## Developed By
-**Ananya Singh**
+Ananya Singh
 
 ## GitHub Repository
-[IPL Ticket Booking Website](https://github.com/ananyasingh42006-max/IPL-Ticket-Booking)
+https://github.com/ananyasingh42006-max/IPL-Ticket-Booking
