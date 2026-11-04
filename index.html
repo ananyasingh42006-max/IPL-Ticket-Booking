@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL 2026 - CricketZone</title>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <h2>CRICKETZONE</h2>
+
+            <ul>
+                <li><a href="#matches">Matches</a></li>
+                <li><a href="#booking">Book Ticket</a></li>
+                <li><a href="#mybookings">My Bookings</a></li>
+                <li><a href="#guidelines">Guidelines</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home">
+        <h1>Experience The Stadium Energy Live!</h1>
+        <p>Book your IPL 2026 tickets and cheer for your favourite team.</p>
+
+        <a href="#matches">View Schedule</a>
+        <a href="#booking">Book Ticket</a>
+    </section>
+
+    <!-- About IPL Section -->
+    <section id="about">
+        <h2>About IPL 2026</h2>
+
+        <p>
+            Indian Premier League brings together the best cricket teams
+            for an exciting cricket tournament.
+        </p>
+
+        <h3>Popular Teams</h3>
+        <ul>
+            <li>Chennai Super Kings</li>
+            <li>Mumbai Indians</li>
+            <li>Royal Challengers Bengaluru</li>
+            <li>Kolkata Knight Riders</li>
+            <li>Sunrisers Hyderabad</li>
+        </ul>
+
+        <h3>Major Match Venues</h3>
+        <ul>
+            <li>M. Chinnaswamy Stadium, Bengaluru</li>
+            <li>Wankhede Stadium, Mumbai</li>
+            <li>MA Chidambaram Stadium, Chennai</li>
+            <li>Eden Gardens, Kolkata</li>
+        </ul>
+    </section>
+
+    <!-- Match Schedule -->
+    <section id="matches">
+        <h2>Upcoming Matches</h2>
+
+        <label for="teamFilter">Choose Team:</label>
+        <select id="teamFilter">
+            <option>All Teams</option>
+            <option>CSK</option>
+            <option>MI</option>
+            <option>RCB</option>
+            <option>KKR</option>
+            <option>SRH</option>
+        </select>
+
+        <table border="1">
+            <tr>
+                <th>Match Number</th>
+                <th>Teams</th>
+                <th>Date & Time</th>
+                <th>Venue</th>
+                <th>General</th>
+                <th>Premium</th>
+                <th>VIP</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>CSK vs MI</td>
+                <td>10 April 2026, 7:30 PM</td>
+                <td>Chennai</td>
+                <td>₹800</td>
+                <td>₹1500</td>
+                <td>₹3000</td>
+                <td><a href="#booking">Book</a></td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+                <td>RCB vs KKR</td>
+                <td>12 April 2026, 7:30 PM</td>
+                <td>Bengaluru</td>
+                <td>₹1000</td>
+                <td>₹2000</td>
+                <td>₹4000</td>
+                <td><a href="#booking">Book</a></td>
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td>MI vs RCB</td>
+                <td>15 April 2026, 7:30 PM</td>
+                <td>Mumbai</td>
+                <td>₹900</td>
+                <td>₹1800</td>
+                <td>₹3500</td>
+                <td><a href="#booking">Book</a></td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Ticket Booking Form -->
+    <section id="booking">
+        <h2>Book Your Tickets</h2>
+
+        <form>
+            <label>Select Match:</label>
+            <select required>
+                <option>Choose Match</option>
+                <option>CSK vs MI</option>
+                <option>RCB vs KKR</option>
+                <option>MI vs RCB</option>
+            </select>
+
+            <br><br>
+
+            <label>Stand Category:</label>
+            <select required>
+                <option>Choose Category</option>
+                <option>General</option>
+                <option>Premium</option>
+                <option>VIP</option>
+            </select>
+
+            <br><br>
+
+            <label>Number of Tickets:</label>
+            <input type="number" min="1" required>
+
+            <br><br>
+
+            <label>Full Name:</label>
+            <input type="text" placeholder="Enter your name" required>
+
+            <br><br>
+
+            <label>Email:</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <br><br>
+
+            <label>Phone Number:</label>
+            <input type="tel" placeholder="Enter phone number" required>
+
+            <br><br>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+
+        <!-- Booking Summary -->
+        <div>
+            <h3>Booking Summary</h3>
+            <p>Selected Match: Not selected</p>
+            <p>Stand Category: Not selected</p>
+            <p>Ticket Price: ₹0</p>
+            <p>Quantity: 0</p>
+            <h3>Total Amount: ₹0</h3>
+        </div>
+    </section>
+
+    <!-- My Bookings -->
+    <section id="mybookings">
+        <h2>My Ticket Bookings</h2>
+
+        <table border="1">
+            <tr>
+                <th>Booking ID</th>
+                <th>Name</th>
+                <th>Match</th>
+                <th>Category</th>
+                <th>Tickets</th>
+                <th>Amount</th>
+            </tr>
+        </table>
+    </section>
+
+    <!-- Guidelines -->
+    <section id="guidelines">
+        <h2>Booking Guidelines</h2>
+
+        <div>
+            <h3>Ticket Verification</h3>
+            <p>Carry your valid ticket for entry into the stadium.</p>
+        </div>
+
+        <div>
+            <h3>ID Proof Requirement</h3>
+            <p>Bring a valid government-issued identity proof.</p>
+        </div>
+
+        <div>
+            <h3>Prohibited Items</h3>
+            <p>Do not carry restricted items inside the stadium.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <h2>CRICKETZONE</h2>
+        <p>© 2026 IPL Ticket Booking. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
