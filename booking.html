@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fffdf4;
+            color: #485568;
+        }
+
+        .booking-container {
+            width: 90%;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #526f91;
+            margin-bottom: 10px;
+        }
+
+        .booking-container p {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 11px;
+            margin-top: 7px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        .preference {
+            margin-top: 18px;
+        }
+
+        .preference label {
+            display: inline;
+            font-weight: normal;
+            margin-right: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #526f91;
+            color: white;
+            font-size: 16px;
+        }
+
+        button[type="reset"] {
+            background: #d6b96e;
+            color: #333;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="booking-container">
+
+        <h1>IPL Ticket Booking</h1>
+        <p>Book your favourite IPL match tickets!</p>
+
+        <form action="#" method="get">
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name"
+                   placeholder="Enter your name"
+                   required minlength="3" maxlength="30">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your email"
+                   required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone"
+                   placeholder="10 digit phone number"
+                   pattern="[0-9]{10}"
+                   minlength="10" maxlength="10"
+                   title="Enter exactly 10 digits"
+                   required>
+
+            <label for="match">Select Match:</label>
+            <select id="match" name="match" required>
+                <option value="">-- Choose a Match --</option>
+                <option value="RCB vs CSK">RCB vs CSK</option>
+                <option value="MI vs KKR">MI vs KKR</option>
+                <option value="CSK vs MI">CSK vs MI</option>
+                <option value="RCB vs MI">RCB vs MI</option>
+            </select>
+
+            <label for="stand">Stand Category:</label>
+            <select id="stand" name="stand" required>
+                <option value="">-- Select Stand --</option>
+                <option value="General">General</option>
+                <option value="Premium">Premium</option>
+                <option value="VIP">VIP</option>
+            </select>
+
+            <label for="tickets">Number of Tickets:</label>
+            <input type="number" id="tickets" name="tickets"
+                   min="1" max="10" required>
+
+            <div class="preference">
+                <label>Booking Preference:</label><br><br>
+
+                <input type="radio" id="online" name="preference"
+                       value="Online" required style="width:auto;">
+                <label for="online">Online</label>
+
+                <input type="radio" id="counter" name="preference"
+                       value="Counter" style="width:auto;">
+                <label for="counter">Counter</label>
+            </div>
+
+            <div class="buttons">
+                <button type="submit">Book Tickets</button>
+                <button type="reset">Reset</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
