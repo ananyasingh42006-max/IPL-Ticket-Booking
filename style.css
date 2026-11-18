@@ -1,3 +1,4 @@
+
 /* RESET */
 * {
     margin: 0;
@@ -16,16 +17,18 @@ body {
     line-height: 1.6;
 }
 
-/* NAVIGATION */
+/* NAVIGATION - FLEXBOX */
+
 header {
     background: #23395b;
     padding: 20px 7%;
 }
 
-nav {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 nav h2 {
@@ -33,23 +36,38 @@ nav h2 {
     letter-spacing: 2px;
 }
 
-nav ul {
+.nav-links {
     display: flex;
+    align-items: center;
     gap: 28px;
     list-style: none;
 }
 
-nav a {
+.nav-links a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-nav a:hover {
+.nav-links a:hover {
     color: #d6bd8a;
 }
 
+/* HAMBURGER MENU */
+
+.menu-toggle {
+    display: none;
+    background: #d6bd8a;
+    color: #23395b;
+    border: none;
+    padding: 8px 12px;
+    font-size: 23px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 /* HERO */
+
 .hero {
     display: flex;
     align-items: center;
@@ -102,7 +120,8 @@ nav a:hover {
     box-shadow: 10px 10px 0 #d6bd8a;
 }
 
-.hero-card h2 {
+.hero-card h2,
+.hero-card h3 {
     color: #d6bd8a;
 }
 
@@ -111,11 +130,8 @@ nav a:hover {
     margin: 15px;
 }
 
-.hero-card h3 {
-    color: #d6bd8a;
-}
-
 /* COMMON HEADINGS */
+
 section {
     padding: 75px 8%;
 }
@@ -131,14 +147,15 @@ section {
     margin: 8px 0;
 }
 
-/* ABOUT */
+/* ABOUT - CSS GRID */
+
 .about {
     background: #ffffff;
 }
 
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
 }
 
@@ -168,60 +185,159 @@ section {
 }
 
 /* MATCHES */
+
 .matches {
     background: #eef2f6;
 }
 
+/* FILTER AND VIEW BUTTONS - FLEXBOX */
+
+.match-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
 .filter {
-    text-align: right;
-    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.filter label {
+    font-weight: bold;
 }
 
 .filter select {
     padding: 10px;
     border: 1px solid #b5c2d1;
     border-radius: 5px;
-}
-
-.table-box {
-    overflow-x: auto;
     background: white;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 5px 15px rgba(35, 57, 91, 0.08);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 650px;
+.view-controls {
+    display: flex;
+    gap: 10px;
 }
 
-th {
-    background: #344f70;
+.view-btn {
+    padding: 10px 15px;
+    border: 1px solid #23395b;
+    background: white;
+    color: #23395b;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.view-btn.active,
+.view-btn:hover {
+    background: #23395b;
     color: white;
 }
 
-th, td {
-    padding: 16px 12px;
-    text-align: center;
-    border-bottom: 1px solid #e0e5ec;
+/* MATCH CARDS - CSS GRID */
+
+.match-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
 }
 
-tr:hover {
-    background: #f7f2e8;
+.match-card {
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    border-top: 5px solid #d6bd8a;
+    box-shadow: 0 5px 15px rgba(35, 57, 91, 0.08);
+    transition: 0.3s;
+}
+
+.match-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(35, 57, 91, 0.15);
+}
+
+.match-number {
+    color: #a58a55;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.match-card h3 {
+    color: #23395b;
+    font-size: 24px;
+    margin: 12px 0;
+}
+
+.match-card p {
+    margin: 8px 0;
+}
+
+.price-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 18px 0;
+}
+
+.price-details span {
+    background: #eef2f6;
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 13px;
 }
 
 .book-btn {
+    display: inline-block;
     background: #d6bd8a;
     color: #23395b;
-    padding: 8px 16px;
+    padding: 9px 18px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
 }
 
+.book-btn:hover {
+    background: #23395b;
+    color: white;
+}
+
+/* LIST VIEW */
+
+.match-grid.list-layout {
+    grid-template-columns: 1fr;
+}
+
+.list-layout .match-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.list-layout .match-card h3 {
+    margin: 0;
+}
+
+.list-layout .price-details {
+    margin: 0;
+}
+
+.no-matches {
+    text-align: center;
+    padding: 25px;
+    font-weight: bold;
+    color: #23395b;
+}
+
 /* BOOKING */
+
 .booking {
     background: #ffffff;
 }
@@ -250,7 +366,8 @@ form label {
     font-weight: bold;
 }
 
-form input, form select {
+form input,
+form select {
     width: 100%;
     padding: 13px;
     border: 1px solid #b5c2d1;
@@ -276,6 +393,7 @@ form button:hover {
 }
 
 /* SUMMARY */
+
 .summary-box {
     background: #f7f2e8;
     padding: 35px;
@@ -315,18 +433,49 @@ form button:hover {
 }
 
 /* MY BOOKINGS */
+
 .mybookings {
     background: #eef2f6;
 }
 
-/* GUIDELINES */
+.table-box {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(35, 57, 91, 0.08);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th {
+    background: #344f70;
+    color: white;
+}
+
+th, td {
+    padding: 16px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e0e5ec;
+}
+
+tr:hover {
+    background: #f7f2e8;
+}
+
+/* GUIDELINES - THREE COLUMN CSS GRID */
+
 .guidelines {
     background: #ffffff;
 }
 
 .guideline-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 25px;
 }
 
@@ -354,6 +503,7 @@ form button:hover {
 }
 
 /* FOOTER */
+
 footer {
     background: #23395b;
     color: white;
@@ -366,15 +516,21 @@ footer h2 {
     margin-bottom: 10px;
 }
 
-/* RESPONSIVE */
+/* TABLET RESPONSIVE LAYOUT */
+
 @media (max-width: 850px) {
+
     .hero {
         flex-direction: column;
         text-align: center;
     }
 
     .info-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .match-grid {
+        grid-template-columns: 1fr;
     }
 
     .booking-layout {
@@ -382,20 +538,50 @@ footer h2 {
     }
 
     .guideline-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
 }
 
+/* MOBILE RESPONSIVE LAYOUT */
+
 @media (max-width: 600px) {
-    nav {
-        flex-direction: column;
-        gap: 15px;
+
+    header {
+        padding: 15px 5%;
     }
 
-    nav ul {
+    .navbar {
         flex-wrap: wrap;
-        justify-content: center;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    /* Show hamburger button */
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Hide navigation until clicked */
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 15px;
+        padding-top: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        padding: 55px 6%;
     }
 
     .hero h1 {
@@ -406,16 +592,85 @@ footer h2 {
         width: 100%;
     }
 
+    section {
+        padding: 45px 5%;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
     .info-grid {
         grid-template-columns: 1fr;
     }
 
-    section {
-        padding: 45px 5%;
+    .match-controls {
+        flex-direction: column;
+        align-items: stretch;
     }
+
+    .filter {
+        justify-content: space-between;
+    }
+
+    .filter select {
+        flex: 1;
+    }
+
+    .view-controls {
+        width: 100%;
+    }
+
+    .view-btn {
+        flex: 1;
+        font-size: 13px;
+    }
+
+    .match-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .match-card {
+        padding: 22px;
+    }
+
+    .list-layout .match-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .price-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .booking-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .form-box,
+    .summary-box {
+        padding: 22px;
+    }
+
+    .guideline-grid {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+
+    #toast {
+        left: 5%;
+        right: 5%;
+        bottom: 20px;
+        min-width: auto;
+    }
+
 }
 
-/* Activity 5 - Toast Notification */
+/* ACTIVITY 5 - TOAST NOTIFICATION */
 
 #toast {
     visibility: hidden;
@@ -445,8 +700,4 @@ footer h2 {
     to {
         opacity: 1;
     }
-}
-
-html {
-    scroll-behavior: smooth;
 }

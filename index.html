@@ -12,14 +12,19 @@
 
 <!-- Navigation -->
 <header>
-    <nav>
-        <h2>🏏 TICKET ARENA</h2>
-        <ul>
+    <nav class="navbar">
+        <h2 class="logo">🏏 TICKET ARENA</h2>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
             <li><a href="#matches">Matches</a></li>
             <li><a href="#booking">Book Ticket</a></li>
             <li><a href="#mybookings">My Bookings</a></li>
             <li><a href="#guidelines">Guidelines</a></li>
-            <li><a href="booking.html">Book Ticket</a></li>
         </ul>
     </nav>
 </header>
@@ -89,75 +94,89 @@
         <p>Choose your favourite match and reserve your seat.</p>
     </div>
 
-    <div class="filter">
-        <label>Filter Teams:</label>
-        <select id="teamFilter">
-            <option>All Teams</option>
-            <option>CSK</option>
-            <option>MI</option>
-            <option>RCB</option>
-            <option>KKR</option>
-        </select>
+    <!-- Filter and View Controls -->
+    <div class="match-controls">
+        <div class="filter">
+            <label for="teamFilter">Filter Teams:</label>
+            <select id="teamFilter">
+                <option value="all">All Teams</option>
+                <option value="CSK">CSK</option>
+                <option value="MI">MI</option>
+                <option value="RCB">RCB</option>
+                <option value="KKR">KKR</option>
+            </select>
+        </div>
+
+        <div class="view-controls">
+            <button type="button" id="gridView" class="view-btn active">
+                ▦ Grid View
+            </button>
+            <button type="button" id="listView" class="view-btn">
+                ☰ List View
+            </button>
+        </div>
     </div>
 
-    <div class="table-box">
-        <table>
-            <tr>
-                <th>Match</th>
-                <th>Teams</th>
-                <th>Date & Time</th>
-                <th>Venue</th>
-                <th>General</th>
-                <th>Premium</th>
-                <th>VIP</th>
-                <th>Action</th>
-            </tr>
+    <!-- Match Cards -->
+    <div class="match-grid" id="matchContainer">
 
-            <tr>
-                <td>01</td>
-                <td>RCB vs CSK</td>
-                <td>10 April, 7:30 PM</td>
-                <td>Bengaluru</td>
-                <td>₹800</td>
-                <td>₹1500</td>
-                <td>₹3000</td>
-                <td><a href="#booking" class="book-btn">Book</a></td>
-            </tr>
+        <div class="match-card" data-teams="RCB CSK">
+            <span class="match-number">MATCH 01</span>
+            <h3>RCB vs CSK</h3>
+            <p>📅 10 April, 7:30 PM</p>
+            <p>📍 Bengaluru</p>
+            <div class="price-details">
+                <span>General: ₹800</span>
+                <span>Premium: ₹1500</span>
+                <span>VIP: ₹3000</span>
+            </div>
+            <a href="#booking" class="book-btn">Book Tickets</a>
+        </div>
 
-            <tr>
-                <td>02</td>
-                <td>MI vs KKR</td>
-                <td>12 April, 7:30 PM</td>
-                <td>Mumbai</td>
-                <td>₹900</td>
-                <td>₹1800</td>
-                <td>₹3500</td>
-                <td><a href="#booking" class="book-btn">Book</a></td>
-            </tr>
+        <div class="match-card" data-teams="MI KKR">
+            <span class="match-number">MATCH 02</span>
+            <h3>MI vs KKR</h3>
+            <p>📅 12 April, 7:30 PM</p>
+            <p>📍 Mumbai</p>
+            <div class="price-details">
+                <span>General: ₹900</span>
+                <span>Premium: ₹1800</span>
+                <span>VIP: ₹3500</span>
+            </div>
+            <a href="#booking" class="book-btn">Book Tickets</a>
+        </div>
 
-            <tr>
-                <td>03</td>
-                <td>CSK vs MI</td>
-                <td>15 April, 7:30 PM</td>
-                <td>Chennai</td>
-                <td>₹700</td>
-                <td>₹1600</td>
-                <td>₹3200</td>
-                <td><a href="#booking" class="book-btn">Book</a></td>
-            </tr>
+        <div class="match-card" data-teams="CSK MI">
+            <span class="match-number">MATCH 03</span>
+            <h3>CSK vs MI</h3>
+            <p>📅 15 April, 7:30 PM</p>
+            <p>📍 Chennai</p>
+            <div class="price-details">
+                <span>General: ₹700</span>
+                <span>Premium: ₹1600</span>
+                <span>VIP: ₹3200</span>
+            </div>
+            <a href="#booking" class="book-btn">Book Tickets</a>
+        </div>
 
-            <tr>
-                <td>04</td>
-                <td>KKR vs RCB</td>
-                <td>18 April, 7:30 PM</td>
-                <td>Kolkata</td>
-                <td>₹800</td>
-                <td>₹1700</td>
-                <td>₹3300</td>
-                <td><a href="#booking" class="book-btn">Book</a></td>
-            </tr>
-        </table>
+        <div class="match-card" data-teams="KKR RCB">
+            <span class="match-number">MATCH 04</span>
+            <h3>KKR vs RCB</h3>
+            <p>📅 18 April, 7:30 PM</p>
+            <p>📍 Kolkata</p>
+            <div class="price-details">
+                <span>General: ₹800</span>
+                <span>Premium: ₹1700</span>
+                <span>VIP: ₹3300</span>
+            </div>
+            <a href="#booking" class="book-btn">Book Tickets</a>
+        </div>
+
     </div>
+
+    <p id="noMatches" class="no-matches" hidden>
+        No matches found for this team.
+    </p>
 </section>
 
 <!-- Booking Section -->
@@ -169,11 +188,9 @@
 
     <div class="booking-layout">
 
-        <!-- Booking Form -->
         <div class="form-box">
             <h3>Ticket Details 🎟️</h3>
 
-            <!-- Activity 7: Selector Forms -->
             <form id="bookingForm">
 
                 <label for="match">Select Match</label>
@@ -194,15 +211,8 @@
                 </select>
 
                 <label for="quantity">Number of Tickets</label>
-                <input
-                    type="number"
-                    id="quantity"
-                    name="quantity"
-                    min="1"
-                    max="10"
-                    value="1"
-                    required
-                >
+                <input type="number" id="quantity" name="quantity"
+                       min="1" max="10" value="1" required>
 
                 <label for="name">Full Name</label>
                 <input type="text" id="name" placeholder="Your name" required>
@@ -220,40 +230,20 @@
 
         <!-- Activity 7: Live Booking Summary -->
         <div class="summary-box">
-
             <span>YOUR ORDER</span>
             <h2>Booking Summary</h2>
 
             <div class="summary-icon">🎫</div>
 
-            <p>
-                <b>Match:</b>
-                <span id="summaryMatch">Not selected</span>
-            </p>
-
-            <p>
-                <b>Stand:</b>
-                <span id="summaryStand">Not selected</span>
-            </p>
-
-            <p>
-                <b>Price per Ticket:</b>
-                ₹<span id="ticketPrice">0</span>
-            </p>
-
-            <p>
-                <b>Quantity:</b>
-                <span id="summaryQuantity">0</span>
-            </p>
+            <p><b>Match:</b> <span id="summaryMatch">Not selected</span></p>
+            <p><b>Stand:</b> <span id="summaryStand">Not selected</span></p>
+            <p><b>Price per Ticket:</b> ₹<span id="ticketPrice">0</span></p>
+            <p><b>Quantity:</b> <span id="summaryQuantity">0</span></p>
 
             <hr>
 
-            <h2>
-                Total: ₹<span id="totalPrice">0</span>
-            </h2>
-
+            <h2>Total: ₹<span id="totalPrice">0</span></h2>
             <small>Enjoy the match and cheer for your team!</small>
-
         </div>
 
     </div>

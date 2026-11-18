@@ -3,10 +3,8 @@
 
 console.log("JavaScript is connected successfully!");
 
-
 // Reusable Toast Function
 function showToast(message) {
-
     const toast = document.getElementById("toast");
 
     if (!toast) {
@@ -23,16 +21,12 @@ function showToast(message) {
 }
 
 
-// Select all Book buttons
-const bookButtons = document.querySelectorAll(".book-btn");
+// Activity 5 - Smooth Scrolling for Book Buttons
 
-// Select booking section
+const bookButtons = document.querySelectorAll(".book-btn");
 const bookingSection = document.getElementById("booking");
 
-
-// Book Button Click Event
 bookButtons.forEach(function (button) {
-
     button.addEventListener("click", function (event) {
 
         event.preventDefault();
@@ -43,38 +37,23 @@ bookButtons.forEach(function (button) {
         });
 
         showToast("Please fill in your booking details!");
-
     });
-
 });
 
 
-// Activity 7 - Selector Forms and Live Interaction
+// Activity 7 - Selector Forms and Live Booking Summary
 
-
-// Select booking form elements using DOM selectors
 const matchSelect = document.getElementById("match");
-
 const standSelect = document.getElementById("stand");
-
 const quantityInput = document.querySelector("#quantity");
 
-
-// Select Booking Summary elements
 const summaryMatch = document.getElementById("summaryMatch");
-
 const summaryStand = document.getElementById("summaryStand");
-
 const summaryQuantity = document.getElementById("summaryQuantity");
-
 const ticketPrice = document.getElementById("ticketPrice");
-
 const totalPrice = document.getElementById("totalPrice");
 
-
-// Ticket prices for each match and stand category
 const ticketPrices = {
-
     "RCB vs CSK": {
         General: 800,
         Premium: 1500,
@@ -98,21 +77,17 @@ const ticketPrices = {
         Premium: 1700,
         VIP: 3300
     }
-
 };
 
 
-// Function to update Booking Summary
+// Function to Update Booking Summary
+
 function updateBookingSummary() {
 
-    // Read selected values
     const selectedMatch = matchSelect.value;
-
     const selectedStand = standSelect.value;
-
     const quantity = Number(quantityInput.value);
 
-    // Get ticket price
     let price = 0;
 
     if (
@@ -120,32 +95,23 @@ function updateBookingSummary() {
         selectedStand &&
         ticketPrices[selectedMatch]
     ) {
-
         price = ticketPrices[selectedMatch][selectedStand];
-
     }
 
-    // Calculate total amount
     const total = price * quantity;
 
-    // Update Booking Summary Card
     summaryMatch.textContent = selectedMatch || "Not selected";
-
     summaryStand.textContent = selectedStand || "Not selected";
-
     summaryQuantity.textContent = quantityInput.value || "0";
 
     ticketPrice.textContent = price;
-
     totalPrice.textContent = total;
 
-    // Show notification
     showToast("Booking summary updated!");
-
 }
 
 
-// Add Change Event Listeners
+// Change Events
 
 if (matchSelect && standSelect && quantityInput) {
 
@@ -159,6 +125,7 @@ if (matchSelect && standSelect && quantityInput) {
 
 
 // Booking Form Submission
+
 const bookingForm = document.getElementById("bookingForm");
 
 if (bookingForm) {
@@ -167,23 +134,138 @@ if (bookingForm) {
 
         event.preventDefault();
 
-        // Update summary before submission
         updateBookingSummary();
 
         showToast("Your booking details have been submitted successfully!");
 
         bookingForm.reset();
 
-        // Reset Booking Summary
         summaryMatch.textContent = "Not selected";
-
         summaryStand.textContent = "Not selected";
-
         summaryQuantity.textContent = "0";
-
         ticketPrice.textContent = "0";
-
         totalPrice.textContent = "0";
+
+    });
+
+}
+
+
+// Activity 8 - Team Filter
+
+const teamFilter = document.getElementById("teamFilter");
+
+const matchCards = document.querySelectorAll(".match-card");
+
+const noMatches = document.getElementById("noMatches");
+
+if (teamFilter) {
+
+    teamFilter.addEventListener("change", function () {
+
+        const selectedTeam = teamFilter.value;
+
+        let visibleCount = 0;
+
+        matchCards.forEach(function (card) {
+
+            const teams = card.dataset.teams.split(" ");
+
+            if (
+                selectedTeam === "all" ||
+                teams.includes(selectedTeam)
+            ) {
+                card.style.display = "";
+                visibleCount++;
+            } else {
+                card.style.display = "none";
+            }
+
+        });
+
+        if (noMatches) {
+            noMatches.hidden = visibleCount !== 0;
+        }
+
+    });
+
+}
+
+
+// Activity 8 - Grid and List View Toggle
+
+const gridView = document.getElementById("gridView");
+
+const listView = document.getElementById("listView");
+
+const matchContainer = document.getElementById("matchContainer");
+
+if (gridView && listView && matchContainer) {
+
+    gridView.addEventListener("click", function () {
+
+        matchContainer.classList.remove("list-layout");
+
+        gridView.classList.add("active");
+
+        listView.classList.remove("active");
+
+        showToast("Grid view selected!");
+
+    });
+
+
+    listView.addEventListener("click", function () {
+
+        matchContainer.classList.add("list-layout");
+
+        listView.classList.add("active");
+
+        gridView.classList.remove("active");
+
+        showToast("List view selected!");
+
+    });
+
+}
+
+
+// Activity 8 - Mobile Hamburger Menu
+
+const menuToggle = document.getElementById("menuToggle");
+
+const navLinks = document.getElementById("navLinks");
+
+if (menuToggle && navLinks) {
+
+    menuToggle.addEventListener("click", function () {
+
+        navLinks.classList.toggle("active");
+
+        const isOpen = navLinks.classList.contains("active");
+
+        menuToggle.setAttribute("aria-expanded", isOpen);
+
+        menuToggle.textContent = isOpen ? "✕" : "☰";
+
+    });
+
+
+    // Close menu after clicking a navigation link
+
+    const navigationItems = navLinks.querySelectorAll("a");
+
+    navigationItems.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("active");
+
+            menuToggle.textContent = "☰";
+
+            menuToggle.setAttribute("aria-expanded", "false");
+
+        });
 
     });
 
